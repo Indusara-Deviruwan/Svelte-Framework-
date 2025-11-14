@@ -1,3 +1,41 @@
-@import 'tailwindcss';
-@plugin '@tailwindcss/forms';
-@plugin '@tailwindcss/typography';
+@import "tailwindcss";
+
+/* Smooth theme transitions */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Fix flashing on load */
+html.preload * {
+  transition: none !important;
+}
+
+/* Light Mode (default) */
+:root {
+  --bg: white;
+  --text: #111;
+}
+
+/* Dark Mode */
+.dark {
+  --bg: #111;
+  --text: #eee;
+}
+
+/* Apply variables to body */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: rgba(100, 100, 100, 0.3);
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+}
