@@ -3,7 +3,6 @@
 
 	/* Auto-changing banner images */
 	let banners = [
-		"/banner.png",
 		"/banner1.jpg",
 		"/banner2.jpg",
 		"/banner3.jpg",
@@ -30,7 +29,7 @@
 		<img
 			src={banner}
 			alt="Travel Banner"
-			class="absolute inset-0 w-full h-full object-cover rounded-xl transition-opacity duration-1000"
+			class="absolute inset-0 w-full h-full object-cover object-top rounded-xl transition-opacity duration-1000"
 			style="opacity: {current === i ? 1 : 0};"
 		/>
 	{/each}
