@@ -28,10 +28,9 @@
 	<link rel="icon" href={logo} />
 </svelte:head>
 
-<header class="flex justify-between items-center p-4 transition"
+<header class="flex justify-end items-center p-4 transition"
 	style="background-color: var(--bg); color: var(--text);"
 >
-	<img src={logo} alt="Logo" class="h-10" />
 
 	<button
 		on:click={toggleTheme}
@@ -59,6 +58,5 @@
 <main class="min-h-screen p-4 transition"
 	style="background-color: var(--bg); color: var(--text);"
 >
-	<p class="font-bold">Theme test text</p>
 	<slot />
 </main>

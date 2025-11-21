@@ -1,7 +1,58 @@
 <script>
-	// No script needed for this simple home page
+	import { onDestroy } from "svelte";
+
+	/* Auto-changing banner images */
+	let banners = [
+		"/banner1.jpg",
+		"/banner2.jpg",
+		"/banner3.jpg",
+		"/banner4.jpg"
+	];
+
+	let current = 0;
+
+	// Auto-change banner every 4 seconds
+	const interval = setInterval(() => {
+		current = (current + 1) % banners.length;
+	}, 4000);
+
+	// Stop interval on page unload
+	onDestroy(() => clearInterval(interval));
 </script>
 
+<!-- ===========================
+        AUTO CHANGING BANNER
+=========================== -->
+<section class="relative w-full h-[360px] md:h-[480px] overflow-hidden rounded-xl mb-12">
+
+	{#each banners as banner, i}
+		<img
+			src={banner}
+			alt="Travel Banner"
+			class="absolute inset-0 w-full h-full object-cover object-top rounded-xl transition-opacity duration-1000"
+			style="opacity: {current === i ? 1 : 0};"
+		/>
+	{/each}
+
+	<!-- Overlay Text -->
+	<div
+		class="absolute inset-0 flex flex-col items-center justify-center text-center px-4"
+		style="color: var(--bg); background: rgba(0,0,0,0.35);"
+	>
+		<h1 class="text-4xl md:text-5xl font-bold drop-shadow-lg">
+			Explore Sri Lanka With Us
+		</h1>
+
+		<p class="mt-3 max-w-xl text-lg drop-shadow-md opacity-90">
+			Comfortable, safe, and unforgettable travel experiences.
+		</p>
+
+	</div>
+</section>
+
+<!-- ===========================
+		WELCOME SECTION
+===========================	-->
 <section
 	class="flex flex-col items-center justify-center text-center gap-6 py-20 px-4 transition"
 	style="color: var(--text);"
