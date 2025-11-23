@@ -28,10 +28,28 @@
 	<link rel="icon" href={logo} />
 </svelte:head>
 
-<header class="flex justify-end items-center p-4 transition"
+<!-- ===========================
+          HEADER
+=========================== -->
+<header
+	class="flex items-center justify-between p-4 shadow-md transition sticky top-0 z-50"
 	style="background-color: var(--bg); color: var(--text);"
 >
+	<!-- Logo + Name -->
+	<div class="flex items-center gap-3">
+		<img src={logo} alt="Logo" class="h-10 w-auto rounded" />
+		<h1 class="text-xl font-bold">2nd Chance Travels</h1>
+	</div>
 
+	<!-- Navigation -->
+	<nav class="hidden md:flex gap-6 font-semibold">
+		<a href="/" class="hover:opacity-70 transition">Home</a>
+		<a href="/services" class="hover:opacity-70 transition">Services</a>
+		<a href="/about" class="hover:opacity-70 transition">About</a>
+		<a href="/contact" class="hover:opacity-70 transition">Contact</a>
+	</nav>
+
+	<!-- Theme Toggle Button -->
 	<button
 		on:click={toggleTheme}
 		class="p-2 rounded-full transition hover:scale-105"
@@ -55,8 +73,32 @@
 	</button>
 </header>
 
-<main class="min-h-screen p-4 transition"
+<!-- ===========================
+            MAIN CONTENT
+=========================== -->
+<main
+	class="min-h-screen p-4 transition pt-6"
 	style="background-color: var(--bg); color: var(--text);"
 >
 	<slot />
 </main>
+
+<!-- ===========================
+            FOOTER
+=========================== -->
+<footer
+	class="mt-12 py-8 text-center transition border-t"
+	style="background-color: var(--bg); color: var(--text); border-color: var(--text);"
+>
+	<p class="font-semibold text-lg">2nd Chance Travels</p>
+	<p class="opacity-75 mt-1">Your trusted travel partner in Sri Lanka.</p>
+
+	<div class="flex justify-center gap-6 mt-4">
+		<a href="/" class="hover:opacity-70">Home</a>
+		<a href="/services" class="hover:opacity-70">Services</a>
+		<a href="/about" class="hover:opacity-70">About</a>
+		<a href="/contact" class="hover:opacity-70">Contact</a>
+	</div>
+
+	<p class="opacity-60 text-sm mt-6">© {new Date().getFullYear()} 2nd Chance Travels. All rights reserved.</p>
+</footer>
